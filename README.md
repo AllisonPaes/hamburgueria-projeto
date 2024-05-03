@@ -24,4 +24,52 @@ O projeto de Cardápio Online com Integração WhatsApp é uma aplicação web q
 
 ## Estrutura do Projeto
 
+index.html
+style.css
+script.js
+tailwind.css
+
+
+- **index.html**: Arquivo HTML principal que contém a estrutura da página web.
+
+- **style.css**: Arquivo CSS personalizado para estilização adicional além do Tailwind CSS.
+
+- **script.js**: Arquivo JavaScript que contém a lógica da aplicação, como adicionar itens ao pedido e enviar pedidos para o WhatsApp.
+
+- **tailwind.css**: Arquivo que importa e configura o Tailwind CSS para uso no projeto.
+
+## Como Usar
+
+1. Clone este repositório em sua máquina local:
+git clone
+
+
+2. Abra o arquivo `index.html` em um navegador web.
+
+3. Visualize o cardápio, adicione itens ao seu pedido e finalize o pedido para enviar para o WhatsApp.
+
+## Responsividade
+
+Este projeto foi desenvolvido com foco na responsividade, garantindo uma experiência de usuário consistente em dispositivos de diferentes tamanhos e resoluções de tela.
+
+## Captura de Tela e Implantação
+
+Após o deploy do projeto, uma captura de tela do site será disponibilizada juntamente com o link para acesso. Esta captura de tela mostrará o design responsivo do site em diferentes dispositivos.
+
+### Captura de Tela:
+
+![Captura de Tela do Site](screenshot.png)
+
+### Link para Acesso:
+
+[Link do Site Implantedo](https://seu-site.com)
+
+## Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request com melhorias ou novas funcionalidades para o projeto.
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
 
