@@ -24,7 +24,7 @@ O projeto de Cardápio Online com Integração WhatsApp é uma aplicação web q
 -![JavaScript](https://img.icons8.com/color/48/000000/javascript.png)
  **JavaScript**: Utilizado para adicionar interatividade à página, como adicionar itens ao pedido e enviar pedidos para o WhatsApp.
 
--![Tailwind CSS](https://img.icons8.com/color/48/000000/tailwind-css.png)
+-![Tailwind CSS](https://img.icons8.com/color/48/000000/tailwindcss.png)
  **Tailwind CSS**: Uma biblioteca de CSS utilitária que facilita a estilização rápida e consistente da interface do usuário.
 
 ## Estrutura do Projeto
