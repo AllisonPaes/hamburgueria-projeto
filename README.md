@@ -15,7 +15,8 @@ O projeto de Cardápio Online com Integração WhatsApp é uma aplicação web q
 ## Tecnologias Utilizadas
 
 - **HTML**: Utilizado para estruturar a página web.
-  
+  ![HTML](https://img.icons8.com/color/48/000000/html-5.png)
+
 - **CSS (Cascading Style Sheets)**: Utilizado para estilizar a página web e torná-la visualmente atraente.
 
 - **JavaScript**: Utilizado para adicionar interatividade à página, como adicionar itens ao pedido e enviar pedidos para o WhatsApp.
