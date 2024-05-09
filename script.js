@@ -73,9 +73,20 @@ function updateCartModal(){
         
         cartItemElement.innerHTML = `
             <div>
-                (name, price, quantity)
+                <div>
+                    <p>${item.name}</p>
+                    <p>${item.quantity}</p>
+                    <p>R$ ${item.price}</p>
+                </div>
+            <div>
+                <button>
+                    Remover
+                </button>
+            </div>
             </div>
         `
+
+        cartItemsContainer.appendChild(cartItemElement)
 
 
     })
