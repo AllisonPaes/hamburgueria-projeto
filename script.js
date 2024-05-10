@@ -81,7 +81,7 @@ function updateCartModal(){
                 </div>
 
             
-                <button>
+                <button class="remove-cart-btn" data-name="${item.name}">
                     Remover
                 </button>
             
@@ -102,4 +102,92 @@ function updateCartModal(){
 
     cartCounter.innerText = cart.length;
 
+}
+
+// Remover o item do carrinho 
+cartItemsContainer.addEventListener("click", function (event){
+    if(event.target.classList.contains("remove-cart-btn")){
+        const name = event.target.getAttribute("data-name")
+
+        removeItemCart(name);
+    }
+})
+
+function removeItemCart(name){
+    const index = cart.findIndex(item => item.name === name);
+
+    if(index !== -1){
+        const item = cart[index];
+
+        if(item.quantity > 1){
+            item.quantity -= 1;
+            updateCartModal();
+            return;
+        }
+
+        cart.splice(index, 1);
+        updateCartModal();
+    }
+
+}
+
+addressInput.addEventListener("input", function(event){
+    let inputValue = event.target.value;
+
+    if(inputValue !== ""){
+        addressWarn.classList.add("hidden")
+    }
+})
+
+// Finalizar pedido
+checkoutBtn.addEventListener("click", function(){
+
+    const isOpen = checkRestaurantOpen();
+    if(!isOpen){
+        alert("HAMBURGUERIA FECHADA NO MOMENTO!")
+        return;
+    }
+
+    
+    if(cart.length === 0) return;
+    if(addressInput.value === ""){
+       addressWarn.classList.remove("hidden") 
+       return;
+    }
+
+// Enviar o pedido para o whatsapp
+    const cartIems = cart.map((item) => {
+        return(
+            ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
+        )
+
+    }).join("")
+
+    const message = encodeURIComponent(cartIems)
+    const phone = "5581982344291"
+
+    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+
+    cart = [];
+    updateCartModal();
+
+})
+
+
+// Verificar a hora e alterar o horario
+function checkRestaurantOpen(){
+    const data = new Date();
+    const hora = data.getHours();
+    return hora >= 18 && hora < 23; 
+}
+
+const spanItem = document.getElementById("data-span")
+const isOpen = checkRestaurantOpen();
+
+if (isOpen){
+    spanItem.classList.remove("bg-red-500")
+    spanItem.classList.add("bg-green-600")
+}else{
+    spanItem.classList.remove("bg-gree-600")
+    spanItem.classList.add("bg-red-500")
 }
