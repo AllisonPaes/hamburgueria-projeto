@@ -155,21 +155,46 @@ checkoutBtn.addEventListener("click", function(){
        return;
     }
 
-// Enviar o pedido para o whatsapp
-    const cartIems = cart.map((item) => {
-        return(
-            ` ${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
-        )
 
-    }).join("")
+// Agrupa os itens do carrinho pelo nome do produto e calcula o total para cada tipo de produto
+const groupedCart = cart.reduce((acc, item) => {
+    if (!acc[item.name]) {
+        acc[item.name] = { ...item, totalQuantity: item.quantity };
+    } else {
+        acc[item.name].totalQuantity += item.quantity;
+    }
+    return acc;
+}, {});
 
-    const message = encodeURIComponent(cartIems)
-    const phone = "5581982344291"
+// Calcula o valor total para cada tipo de produto e o valor total geral do carrinho
+let totalValue = 0;
+const formattedItems = Object.values(groupedCart).map((item) => {
+    const subtotal = item.price * item.totalQuantity;
+    totalValue += subtotal;
+    return `${item.name} - Quantidade: ${item.totalQuantity} - Subtotal: R$${subtotal.toFixed(2)}`;
+}).join('\n');
 
-    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+// Adiciona o valor total geral e o endereço à mensagem
+const message = `Produtos:
+${formattedItems}
 
-    cart = [];
-    updateCartModal();
+Valor Total: R$${totalValue.toFixed(2)}
+
+Endereço:
+${addressInput.value}`;
+
+// Encode a mensagem para que possa ser passada como parâmetro na URL do WhatsApp
+const encodedMessage = encodeURIComponent(message);
+
+// Número de telefone para o qual você deseja enviar a mensagem
+const phone = "5581982344291";
+
+// Abre uma nova janela com o link do WhatsApp contendo a mensagem
+window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
+
+// Limpa o carrinho e atualiza o modal do carrinho
+cart = [];
+updateCartModal();
 
 })
 
