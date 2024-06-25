@@ -67,7 +67,7 @@ Após o deploy do projeto, uma captura de tela do site será disponibilizada jun
 
 ### Link para Acesso:
 
-[Link do Site Implantedo](https://seu-site.com)
+[Link do Site Implantedo](https://westburguer.vercel.app)
 
 ## Contribuindo
 
